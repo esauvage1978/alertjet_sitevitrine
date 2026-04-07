@@ -1,0 +1,136 @@
+<!--
+  Template MJML — Notification formulaire contact (AlertJet)
+  Couleurs alignées sur la marque vitrine : cyan #22d3ee, bleu #2563eb, texte #0f172a.
+
+  Compiler : https://mjml.io — CLI : npx mjml contact-notification-mailjet.mjml -o contact-notification-mailjet.html
+
+  Variables Mailjet (déclarer dans le template / API / Zapier) :
+    {{var:source}}         — ex. alertjet-fr
+    {{var:objet}}          — Thème du message (select formulaire)
+    {{var:name}}           — Nom
+    {{var:company}}        — Société (optionnel)
+    {{var:email}}          — Email
+    {{var:message}}        — Message
+    {{var:submitted_at}}   — Date/heure (ex. remplie par Zapier)
+    {{var:page}}           — URL de la page (optionnel, si routé depuis le formulaire)
+
+  Logo : préférer un PNG hébergé sur https://alertjet.fr/ pour une meilleure compatibilité clients mail.
+        Ici : favicon ICO public (fallback) ; remplacer par logo PNG dédié si prêt.
+-->
+<mjml>
+  <mj-head>
+    <mj-title>Nouveau message — Contact AlertJet</mj-title>
+    <mj-preview>Un visiteur a envoyé un message depuis le formulaire de contact alertjet.fr.</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="system-ui, 'Segoe UI', Helvetica, Arial, sans-serif" />
+      <mj-text color="#0f172a" font-size="16px" line-height="24px" />
+      <mj-button
+        background-color="#2563eb"
+        color="#ffffff"
+        font-size="16px"
+        font-weight="600"
+        border-radius="10px"
+        inner-padding="14px 28px"
+      />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#f1f5f9" width="600px">
+    <!-- Bandeau (bleu marque) -->
+    <mj-section background-color="#2563eb" padding="24px 40px 20px">
+      <mj-column width="100%">
+        <mj-image
+          src="https://alertjet.fr/favicon.ico"
+          alt="AlertJet"
+          width="72px"
+          padding-bottom="8px"
+          href="https://alertjet.fr/"
+        />
+        <mj-text
+          align="center"
+          font-size="13px"
+          font-weight="700"
+          letter-spacing="0.06em"
+          text-transform="uppercase"
+          color="#ffffff"
+          padding="0"
+          line-height="20px"
+        >
+          Incidents &amp; interventions · petites équipes
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Ligne accent cyan (rappel du dégradé marque) -->
+    <mj-section padding="0" background-color="#2563eb">
+      <mj-column width="100%">
+        <mj-divider border-width="3px" border-color="#22d3ee" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <!-- Titre -->
+    <mj-section background-color="#ffffff" padding="28px 40px 12px">
+      <mj-column width="100%">
+        <mj-text font-size="20px" font-weight="700" color="#1d4ed8" padding-bottom="8px">
+          Nouveau message depuis alertjet.fr
+        </mj-text>
+        <mj-text font-size="14px" color="#475569" padding-bottom="0">
+          Formulaire de contact — réponse attendue à l’adresse indiquée ci-dessous.<br />
+          <span style="font-size: 13px; color: #64748b;">Application : <a href="https://alertjet.builders/" style="color: #2563eb; font-weight: 600;">alertjet.builders</a></span>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Données du formulaire -->
+    <mj-section background-color="#ffffff" padding="0 40px 20px">
+      <mj-column width="100%">
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1e40af">Source</strong><br />
+          {{var:source}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1e40af">Page</strong><br />
+          {{var:page}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1e40af">Objet</strong><br />
+          {{var:objet}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1e40af">Nom</strong><br />
+          {{var:name}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1e40af">Société</strong><br />
+          {{var:company}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1e40af">Email</strong><br />
+          <a href="mailto:{{var:email}}" style="color: #2563eb; font-weight: 600;">{{var:email}}</a>
+        </mj-text>
+        <mj-text padding-bottom="8px">
+          <strong style="color: #1e40af">Message</strong>
+        </mj-text>
+        <mj-text padding="12px 16px" container-background-color="#f8fafc" color="#0f172a">
+          {{var:message}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- CTA -->
+    <mj-section background-color="#ffffff" padding="0 40px 28px">
+      <mj-column width="100%">
+        <mj-button href="mailto:{{var:email}}" align="left">Répondre par e-mail</mj-button>
+      </mj-column>
+    </mj-section>
+
+    <!-- Pied -->
+    <mj-section background-color="#e2e8f0" padding="22px 40px">
+      <mj-column width="100%">
+        <mj-text font-size="12px" color="#475569" align="center" padding="0">
+          Email automatique — <a href="https://alertjet.fr/" style="color: #2563eb; font-weight: 600;">alertjet.fr</a> · <a href="https://alertjet.builders/" style="color: #2563eb;">AlertJet Builders</a><br />
+          <span style="color: #64748b;">Reçu le : {{var:submitted_at}}</span>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alertjet.fr/sitemap-index.xml

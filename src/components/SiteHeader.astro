@@ -1,0 +1,47 @@
+---
+import { APP_URL } from '../config/site';
+
+interface Props {
+  variant?: 'home' | 'default';
+}
+
+const { variant = 'default' } = Astro.props;
+const hash = (id: string) => (variant === 'home' ? `#${id}` : `/#${id}`);
+---
+
+<header
+  class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50"
+>
+  <div
+    class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6"
+  >
+    <a href="/" class="flex items-center gap-2 font-semibold tracking-tight text-white">
+      <span
+        class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 text-sm font-bold text-slate-950 shadow-lg shadow-cyan-500/20"
+        >AJ</span
+      >
+      <span class="text-lg">AlertJet</span>
+    </a>
+    <nav class="flex flex-wrap items-center justify-end gap-x-3 gap-y-2 text-sm sm:gap-3">
+      <a
+        href={hash('fonctionnalites')}
+        class="hidden text-slate-400 transition hover:text-white sm:inline">Fonctionnalités</a
+      >
+      <a
+        href={hash('pour-qui')}
+        class="hidden text-slate-400 transition hover:text-white sm:inline">Pour qui</a
+      >
+      <a
+        href={hash('tarifs')}
+        class="hidden text-slate-400 transition hover:text-white sm:inline">Tarifs</a
+      >
+      <a href="/contact" class="text-slate-400 transition hover:text-white">Contact</a>
+      <a
+        href={APP_URL}
+        class="rounded-lg bg-cyan-500 px-4 py-2 font-medium text-slate-950 shadow-md shadow-cyan-500/25 transition hover:bg-cyan-400"
+      >
+        Ouvrir l’application
+      </a>
+    </nav>
+  </div>
+</header>

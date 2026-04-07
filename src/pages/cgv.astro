@@ -1,0 +1,91 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const title = 'Conditions générales de vente';
+const description =
+  'CGV AlertJet : commande, prix, facturation, rétractation et résiliation des abonnements.';
+---
+
+<PageLayout title={title} description={description}>
+  <article class="text-slate-300">
+    <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      Conditions générales de vente (CGV)
+    </h1>
+    <p class="mt-4 text-sm text-slate-500">Dernière mise à jour : avril 2026</p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">1. Champ d’application</h2>
+    <p class="mt-4 leading-relaxed">
+      Les présentes CGV s’appliquent à toute <strong class="text-white">commande</strong> ou{' '}
+      <strong class="text-white">souscription</strong> aux offres payantes AlertJet (plans Starter,
+      Pro, etc.) proposées via{' '}
+      <a href="https://alertjet.builders/" class="text-cyan-400 hover:underline">alertjet.builders</a>{' '}
+      ou tout canal de vente habilité. Les offres gratuites peuvent être soumises aux seules{' '}
+      <a href="/cgu" class="text-cyan-400 hover:underline">CGU</a>.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">2. Commande et formation du contrat</h2>
+    <p class="mt-4 leading-relaxed">
+      La commande est formée après acceptation électronique des présentes CGV et réception
+      effective du paiement ou validation du moyen de paiement récurrent, selon le processus en
+      vigueur au moment de la souscription.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">3. Prix et taxes</h2>
+    <p class="mt-4 leading-relaxed">
+      Les prix sont indiqués sur la vitrine et/ou dans l’application, en euros et{' '}
+      <strong class="text-white">TTC ou HT</strong> selon le cas (préciser à la commande). L’éditeur
+      se réserve le droit de modifier ses tarifs ; les changements ne s’appliquent pas rétroactivement
+      à la période de facturation en cours sous réserve de clause contractuelle spécifique.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">4. Facturation et paiement</h2>
+    <p class="mt-4 leading-relaxed">
+      La facturation est mensuelle ou selon la périodicité choisie. Le défaut de paiement peut
+      entraîner la suspension de l’accès au service après mise en demeure, dans le respect du droit
+      applicable.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">5. Droit de rétractation</h2>
+    <p class="mt-4 leading-relaxed">
+      Pour les <strong class="text-white">consommateurs</strong>, le délai de rétractation légal de
+      14 jours peut s’appliquer, sous réserve des exceptions prévues au Code de la consommation
+      (notamment lorsque l’exécution du service commence avant la fin du délai avec accord exprès).
+      Les modalités de formulaire de rétractation seront communiquées sur demande ou dans le tunnel
+      de commande.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">6. Exécution du service</h2>
+    <p class="mt-4 leading-relaxed">
+      Le service est fourni selon les spécifications de l’offre (nombre de projets, quotas
+      d’incidents, intégrations, etc.). Les niveaux de support et de disponibilité sont ceux décrits
+      dans l’offre ou sur demande commerciale.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">7. Résiliation</h2>
+    <p class="mt-4 leading-relaxed">
+      L’abonnement peut être résilié à l’échéance selon les modalités prévues dans l’interface
+      client ou par écrit. Les données peuvent être supprimées après un délai de conservation
+      défini dans la politique de confidentialité ou le contrat-cadre.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">8. Garanties</h2>
+    <p class="mt-4 leading-relaxed">
+      Le client est seul responsable de l’usage qu’il fait du service et de la conformité de ses
+      traitements de données personnes (RGPD) dans son contexte d’emploi.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">9. Droit applicable</h2>
+    <p class="mt-4 leading-relaxed">
+      Les présentes CGV sont régies par le <strong class="text-white">droit français</strong>.
+      Litiges : compétence des tribunaux français sous réserve des règles d’ordre public protectrices
+      du consommateur.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">10. Contact</h2>
+    <p class="leading-relaxed">
+      <a href="/contact" class="text-cyan-400 hover:underline">Nous contacter</a>
+      ·
+      <a href="/mentions-legales" class="text-cyan-400 hover:underline">Mentions légales</a>
+    </p>
+  </article>
+</PageLayout>

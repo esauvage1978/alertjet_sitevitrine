@@ -1,0 +1,23 @@
+---
+import Layout from './Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title.includes('AlertJet') ? title : `${title} — AlertJet`;
+---
+
+<Layout title={pageTitle} description={description}>
+  <SiteHeader variant="default" />
+  <main class="min-h-[50vh] border-b border-slate-800/80">
+    <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+      <slot />
+    </div>
+  </main>
+  <SiteFooter />
+</Layout>

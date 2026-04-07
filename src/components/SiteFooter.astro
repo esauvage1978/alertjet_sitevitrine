@@ -1,0 +1,44 @@
+---
+import { APP_URL } from '../config/site';
+---
+
+<footer class="border-t border-slate-800/80 px-4 py-10 sm:px-6">
+  <div class="mx-auto max-w-5xl space-y-8">
+    <div
+      class="flex flex-col items-center justify-between gap-6 sm:flex-row"
+    >
+      <div class="flex items-center gap-2 text-slate-400">
+        <span
+          class="flex h-8 w-8 items-center justify-center rounded-md bg-slate-800 text-xs font-bold text-cyan-400"
+          >AJ</span
+        >
+        <span class="text-sm">AlertJet — vitrine</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
+        <span>Site : <span class="text-slate-400">alertjet.fr</span></span>
+        <a href={APP_URL} class="text-cyan-500 transition hover:text-cyan-400">alertjet.builders</a>
+      </div>
+    </div>
+    <nav
+      aria-label="Informations légales"
+      class="flex flex-wrap justify-center gap-x-4 gap-y-2 border-t border-slate-800/80 pt-8 text-center text-xs text-slate-500 sm:text-sm"
+    >
+      <a href="/mentions-legales" class="text-slate-400 transition hover:text-cyan-400"
+        >Mentions légales</a
+      >
+      <span class="text-slate-700" aria-hidden="true">·</span>
+      <a
+        href="/politique-de-confidentialite"
+        class="text-slate-400 transition hover:text-cyan-400">Confidentialité</a
+      >
+      <span class="text-slate-700" aria-hidden="true">·</span>
+      <a href="/cookies" class="text-slate-400 transition hover:text-cyan-400">Cookies</a>
+      <span class="text-slate-700" aria-hidden="true">·</span>
+      <a href="/cgu" class="text-slate-400 transition hover:text-cyan-400">CGU</a>
+      <span class="text-slate-700" aria-hidden="true">·</span>
+      <a href="/cgv" class="text-slate-400 transition hover:text-cyan-400">CGV</a>
+      <span class="text-slate-700" aria-hidden="true">·</span>
+      <a href="/contact" class="text-slate-400 transition hover:text-cyan-400">Contact</a>
+    </nav>
+  </div>
+</footer>

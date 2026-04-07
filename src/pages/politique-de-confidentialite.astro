@@ -1,0 +1,85 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const title = 'Politique de confidentialité';
+const description =
+  'Politique de confidentialité alertjet.fr : traitement des données personnelles, cookies, droits RGPD.';
+---
+
+<PageLayout title={title} description={description}>
+  <article class="text-slate-300">
+    <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      Politique de confidentialité
+    </h1>
+    <p class="mt-4 text-sm text-slate-500">Dernière mise à jour : avril 2026</p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">1. Responsable du traitement</h2>
+    <p class="mt-4 leading-relaxed">
+      Le responsable du traitement des données collectées via le Site{' '}
+      <strong class="text-white">alertjet.fr</strong> est l’éditeur identifié dans les{' '}
+      <a href="/mentions-legales" class="text-cyan-400 hover:underline">mentions légales</a>.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">2. Données collectées et finalités</h2>
+    <p class="mt-4 leading-relaxed">Nous pouvons traiter les catégories de données suivantes :</p>
+    <ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed">
+      <li>
+        <strong class="text-white">Formulaire de contact</strong> : nom, société (facultatif),
+        adresse e-mail, objet, message — pour répondre à votre demande et assurer le suivi
+        relationnel.
+      </li>
+      <li>
+        <strong class="text-white">Données de navigation</strong> (le cas échéant) : consultez la
+        page <a href="/cookies" class="text-cyan-400 hover:underline">Gestion des cookies</a>.
+      </li>
+    </ul>
+    <p class="mt-4 leading-relaxed">
+      La base légale est, selon les cas, votre <strong class="text-white">consentement</strong>,
+      l’<strong class="text-white">exécution de mesures précontractuelles</strong> à votre demande
+      ou notre <strong class="text-white">intérêt légitime</strong> à répondre aux sollicitations
+      professionnelles.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">3. Destinataires et sous-traitants</h2>
+    <p class="mt-4 leading-relaxed">
+      Les données du formulaire de contact sont transmises à nos outils techniques (hébergeur,
+      routage webhooks, services d’e-mail transactionnel le cas échéant) strictement dans la
+      limite nécessaire. Ces prestataires sont liés par des obligations contractuelles conformes au
+      RGPD.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">4. Durée de conservation</h2>
+    <p class="mt-4 leading-relaxed">
+      Les messages de contact sont conservés pendant la durée nécessaire au traitement de la
+      demande, puis archivés avec des durées adaptées aux contraintes légales ou limitées à trois (3)
+      ans à compter du dernier contact, sauf obligation contraire.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">5. Transferts hors UE</h2>
+    <p class="mt-4 leading-relaxed">
+      S’il existe des transferts vers des pays ne faisant pas l’objet d’une décision d’adéquation,
+      ils sont encadrés par les clauses contractuelles types de la Commission européenne ou tout
+      autre mécanisme reconnu par le RGPD.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">6. Vos droits</h2>
+    <p class="mt-4 leading-relaxed">
+      Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition
+      et de portabilité (lorsqu’il s’applique). Vous pouvez retirer votre consentement à tout
+      moment. Vous pouvez introduire une réclamation auprès de la CNIL (
+      <a href="https://www.cnil.fr" class="text-cyan-400 hover:underline">cnil.fr</a>).
+    </p>
+    <p class="mt-4 leading-relaxed">
+      Pour exercer vos droits :{' '}
+      <a href="mailto:contact@alertjet.fr" class="text-cyan-400 hover:underline">contact@alertjet.fr</a>
+      ou via le <a href="/contact" class="text-cyan-400 hover:underline">formulaire de contact</a>.
+    </p>
+
+    <h2 class="mt-10 text-xl font-semibold text-white">7. Sécurité</h2>
+    <p class="mt-4 leading-relaxed">
+      Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger
+      les données contre la destruction accidentelle ou illicite, la perte, l’altération ou
+      l’accès non autorisé.
+    </p>
+  </article>
+</PageLayout>
