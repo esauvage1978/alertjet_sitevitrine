@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+/* Charte couleurs (alignée builder/app.css — encre × corail) */
+:root {
+  --ink: #0c1929;
+  --ink-deep: #060d16;
+  --ink-soft: #152a44;
+  --sidebar-mid: #0a1628;
+  --coral: #ff5a36;
+  --coral-soft: #ff7a5c;
+  --coral-mid: #ff8f6b;
+  --coral-dim: rgba(255, 90, 54, 0.15);
+  --surface: #f0f4f8;
+  --surface-elevated: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: rgba(12, 25, 41, 0.08);
+  --danger: #dc2626;
+  --action: var(--coral);
+  --action-hover: #e04a28;
+}

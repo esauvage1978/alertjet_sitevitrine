@@ -10,7 +10,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "icons": "node scripts/generate-favicon-ico.mjs"
+    "icons": "node scripts/generate-favicon-ico.mjs",
+    "ship": "node scripts/ship.mjs",
+    "ship:watch": "node scripts/ship-watch.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
@@ -19,7 +21,8 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "chokidar": "^4.0.3",
     "sharp": "^0.34.5",
-    "to-ico": "^1.1.5"
+    "to-ico": "^1.0.1"
   }
 }

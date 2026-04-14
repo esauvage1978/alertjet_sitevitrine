@@ -3,9 +3,59 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { APP_URL } from '../config/site';
+import plansData from '../data/plans.json';
+
+const accentMap: Record<
+  string,
+  {
+    article: string;
+    badge: string;
+    check: string;
+    btn: string;
+    targetBox: string;
+    targetStrong: string;
+    footerBox?: string;
+    footerStrong?: string;
+    footerSubnote?: string;
+  }
+> = {
+  emerald: {
+    article: 'border-emerald-500/25',
+    badge: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300',
+    check: 'text-emerald-400',
+    btn: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200 hover:bg-emerald-500/20',
+    targetBox: 'border-slate-700/80 bg-slate-950/50',
+    targetStrong: 'text-slate-300',
+  },
+  blue: {
+    article: 'border-blue-500/30',
+    badge: 'border-blue-500/40 bg-blue-500/10 text-blue-300',
+    check: 'text-blue-400',
+    btn: 'border-blue-500/50 bg-blue-500/15 text-blue-100 hover:bg-blue-500/25',
+    targetBox: 'border-blue-500/25 bg-blue-500/5',
+    targetStrong: 'text-blue-300',
+    footerBox: '',
+    footerStrong: '',
+  },
+  violet: {
+    article:
+      'border-2 border-violet-500/50 bg-gradient-to-b from-violet-950/40 to-slate-900/40 ring-1 ring-violet-400/20 lg:scale-[1.02]',
+    badge: 'border-violet-400/50 bg-violet-600 text-white shadow-lg',
+    check: 'text-violet-400',
+    btn: 'bg-violet-500 text-white shadow-lg shadow-violet-500/30 hover:bg-violet-400',
+    targetBox: 'border-violet-500/30 bg-violet-500/10',
+    targetStrong: 'text-violet-300',
+    footerBox: 'border-violet-500/25 bg-slate-950/40 text-violet-200/95',
+    footerStrong: 'font-semibold',
+    footerSubnote: 'mt-1 block text-xs font-normal text-slate-400',
+  },
+};
 const title = 'AlertJet — Gestion des incidents et interventions pour petites équipes';
 const description =
   'Centralisez incidents, interventions et suivi d’équipe. AlertJet simplifie la coordination pour les structures qui n’ont pas besoin d’un outil d’entreprise surdimensionné.';
+
+const meta = plansData.meta ?? null;
+const packs = Array.isArray(plansData.packs) ? plansData.packs : [];
 ---
 
 <Layout title={title} description={description}>
@@ -161,149 +211,162 @@ const description =
             Commence gratuitement, monte en charge quand ton équipe est prête — sans engagement
             sur le gratuit.
           </p>
+          {meta?.vatNote ? (
+            <p class="mx-auto mt-3 max-w-3xl text-sm text-slate-500">{meta.vatNote}</p>
+          ) : null}
+          {meta?.eventDefinition ? (
+            <p
+              class="mx-auto mt-3 max-w-3xl rounded-2xl border border-slate-800 bg-slate-900/30 px-4 py-3 text-sm text-slate-300"
+            >
+              <span class="font-semibold text-white">Définition d’un événement :</span>{' '}
+              {meta.eventDefinition}
+            </p>
+          ) : null}
         </div>
 
         <div class="mt-14 grid gap-6 lg:grid-cols-3 lg:items-stretch">
-          <!-- Plan Free -->
-          <article
-            class="flex flex-col rounded-2xl border border-emerald-500/25 bg-slate-900/40 p-6 shadow-xl shadow-black/20"
-          >
-            <div class="flex items-center gap-2 text-lg font-semibold text-white">
-              <span class="text-xl" aria-hidden="true">🟢</span>
-              Plan Free
-              <span
-                class="ml-auto rounded-md border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-300"
-                >Obligatoire</span
-              >
-            </div>
-            <p class="mt-4 text-3xl font-bold tracking-tight text-white">
-              0€
-              <span class="text-base font-normal text-slate-500">/ mois</span>
-            </p>
-            <ul class="mt-6 flex flex-1 flex-col gap-3 text-sm text-slate-300">
-              <li class="flex gap-2">
-                <span class="text-emerald-400" aria-hidden="true">✓</span>
-                <span>1 projet</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-emerald-400" aria-hidden="true">✓</span>
-                <span>50–100 incidents / mois</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-emerald-400" aria-hidden="true">✓</span>
-                <span>Alertes basiques</span>
-              </li>
-            </ul>
-            <p class="mt-6 rounded-lg border border-slate-700/80 bg-slate-950/50 px-3 py-2 text-sm text-slate-400">
-              <span class="font-medium text-slate-300">👉 Objectif :</span> acquisition
-            </p>
-            <a
-              href={APP_URL}
-              class="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm font-semibold text-emerald-200 transition hover:bg-emerald-500/20"
-            >
-              Commencer gratuitement
-            </a>
-          </article>
-
-          <!-- Plan Starter -->
-          <article
-            class="flex flex-col rounded-2xl border border-blue-500/30 bg-slate-900/40 p-6 shadow-xl shadow-black/20"
-          >
-            <div class="flex items-center gap-2 text-lg font-semibold text-white">
-              <span class="text-xl" aria-hidden="true">🔵</span>
-              Plan Starter
-            </div>
-            <p class="mt-4 text-3xl font-bold tracking-tight text-white">
-              9€
-              <span class="text-base font-normal text-slate-500">/ mois</span>
-            </p>
-            <p class="mt-2 rounded-lg border border-blue-500/25 bg-blue-500/5 px-3 py-2 text-sm text-slate-300">
-              <span class="font-medium text-blue-300">👉 Cible :</span> indie hackers / petits SaaS
-            </p>
-            <ul class="mt-6 flex flex-1 flex-col gap-3 text-sm text-slate-300">
-              <li class="flex gap-2">
-                <span class="text-blue-400" aria-hidden="true">✓</span>
-                <span>3 projets</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-blue-400" aria-hidden="true">✓</span>
-                <span>1 000 incidents / mois</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-blue-400" aria-hidden="true">✓</span>
-                <span>E-mail + webhook alert</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-blue-400" aria-hidden="true">✓</span>
-                <span>Historique limité</span>
-              </li>
-            </ul>
-            <p class="mt-6 text-sm italic text-amber-200/90">
-              💡 Pricing psychologique parfait
-            </p>
-            <a
-              href={APP_URL}
-              class="mt-6 inline-flex w-full items-center justify-center rounded-xl border border-blue-500/50 bg-blue-500/15 px-4 py-3 text-sm font-semibold text-blue-100 transition hover:bg-blue-500/25"
-            >
-              Choisir Starter
-            </a>
-          </article>
-
-          <!-- Plan Pro -->
-          <article
-            class="relative flex flex-col rounded-2xl border-2 border-violet-500/50 bg-gradient-to-b from-violet-950/40 to-slate-900/40 p-6 shadow-xl shadow-violet-500/10 ring-1 ring-violet-400/20 lg:scale-[1.02]"
-          >
-            <span
-              class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full border border-violet-400/50 bg-violet-600 px-3 py-0.5 text-xs font-semibold text-white shadow-lg"
-              >Sweet spot</span
-            >
-            <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
-              <span class="text-xl" aria-hidden="true">🟣</span>
-              Plan Pro
-            </div>
-            <p class="mt-4 text-3xl font-bold tracking-tight text-white">
-              29€
-              <span class="text-base font-normal text-slate-500">/ mois</span>
-            </p>
-            <p class="mt-2 rounded-lg border border-violet-500/30 bg-violet-500/10 px-3 py-2 text-sm text-slate-200">
-              <span class="font-medium text-violet-300">👉 Cible :</span> notre cœur de marché
-            </p>
-            <ul class="mt-6 flex flex-1 flex-col gap-3 text-sm text-slate-300">
-              <li class="flex gap-2">
-                <span class="text-violet-400" aria-hidden="true">✓</span>
-                <span>10 projets</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-violet-400" aria-hidden="true">✓</span>
-                <span>10 000 incidents / mois</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-violet-400" aria-hidden="true">✓</span>
-                <span>Slack / webhook avancé</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-violet-400" aria-hidden="true">✓</span>
-                <span>Priorités / tags</span>
-              </li>
-              <li class="flex gap-2">
-                <span class="text-violet-400" aria-hidden="true">✓</span>
-                <span>Historique complet</span>
-              </li>
-            </ul>
-            <p class="mt-6 space-y-1 rounded-lg border border-violet-500/25 bg-slate-950/40 px-3 py-2 text-sm text-violet-200/95">
-              <span class="font-semibold">👉 💡 Sweet spot = 29€</span>
-              <span class="mt-1 block text-xs font-normal text-slate-400">
-                Aligné avec ce que les gens paient déjà pour ce type d’outil.
-              </span>
-            </p>
-            <a
-              href={APP_URL}
-              class="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-violet-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 transition hover:bg-violet-400"
-            >
-              Choisir Pro
-            </a>
-          </article>
+          {
+            plansData.plans.map((plan) => {
+              const a = accentMap[plan.accent] ?? accentMap.emerald;
+              return (
+                <article
+                  class:list={[
+                    'relative flex flex-col rounded-2xl bg-slate-900/40 p-6 shadow-xl shadow-black/20',
+                    plan.highlight ? '' : 'border',
+                    a.article,
+                  ]}
+                >
+                  {plan.highlight && plan.badge ? (
+                    <span
+                      class:list={[
+                        'absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full border px-3 py-0.5 text-xs font-semibold',
+                        a.badge,
+                      ]}
+                    >
+                      {plan.badge}
+                    </span>
+                  ) : null}
+                  <div
+                    class:list={[
+                      'flex items-center gap-2 text-lg font-semibold text-white',
+                      plan.highlight ? 'mt-2' : '',
+                    ]}
+                  >
+                    <span class="text-xl" aria-hidden="true">
+                      {plan.emoji}
+                    </span>
+                    {plan.name}
+                    {plan.id === 'free' && plan.badge ? (
+                      <span
+                        class:list={[
+                          'ml-auto rounded-md border px-2 py-0.5 text-xs font-medium',
+                          a.badge,
+                        ]}
+                      >
+                        {plan.badge}
+                      </span>
+                    ) : null}
+                  </div>
+                  <p class="mt-4 text-3xl font-bold tracking-tight text-white">
+                    {plan.priceDisplay}
+                    <span class="text-base font-normal text-slate-500">{plan.period}</span>
+                  </p>
+                  {plan.target && plan.targetLabel ? (
+                    <p
+                      class:list={[
+                        'mt-2 rounded-lg border px-3 py-2 text-sm text-slate-300',
+                        a.targetBox,
+                      ]}
+                    >
+                      <span class:list={['font-medium', a.targetStrong]}>{plan.targetLabel}</span>{' '}
+                      {plan.target}
+                    </p>
+                  ) : null}
+                  <ul class="mt-6 flex flex-1 flex-col gap-3 text-sm text-slate-300">
+                    {plan.features.map((f) => (
+                      <li class="flex gap-2">
+                        <span class={a.check} aria-hidden="true">
+                          ✓
+                        </span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {plan.id === 'free' && plan.footerNote ? (
+                    <p class="mt-6 rounded-lg border border-slate-700/80 bg-slate-950/50 px-3 py-2 text-sm text-slate-400">
+                      {plan.footerNote}
+                    </p>
+                  ) : null}
+                  {plan.footerNote && plan.id !== 'free' ? (
+                    plan.footerHighlight === 'italic' ? (
+                      <p class="mt-6 text-sm italic text-amber-200/90">{plan.footerNote}</p>
+                    ) : plan.footerHighlight === 'box' ? (
+                      <p
+                        class:list={[
+                          'mt-6 space-y-1 rounded-lg border px-3 py-2 text-sm',
+                          a.footerBox,
+                        ]}
+                      >
+                        <span class={a.footerStrong}>{plan.footerNote}</span>
+                        {plan.footerSubnote ? (
+                          <span class={a.footerSubnote}>{plan.footerSubnote}</span>
+                        ) : null}
+                      </p>
+                    ) : (
+                      <p class="mt-6 text-sm text-slate-400">{plan.footerNote}</p>
+                    )
+                  ) : null}
+                  <a
+                    href={APP_URL}
+                    class:list={[
+                      'mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition',
+                      a.btn,
+                    ]}
+                  >
+                    {plan.ctaLabel}
+                  </a>
+                </article>
+              );
+            })
+          }
         </div>
+
+        {packs.length ? (
+          <div class="mt-14">
+            <h3 class="text-xl font-semibold text-white">Packs d’événements supplémentaires</h3>
+            <p class="mt-2 text-sm text-slate-400">
+              Achats optionnels une fois l’offre Starter ou Pro souscrite (disponibilité selon
+              l’implémentation côté application).
+            </p>
+            <div class="mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/30">
+              <table class="w-full text-left text-sm">
+                <thead class="border-b border-slate-800 bg-slate-950/40 text-slate-300">
+                  <tr>
+                    <th class="px-5 py-3 font-medium">Offre</th>
+                    <th class="px-5 py-3 font-medium">Volume ajouté</th>
+                    <th class="px-5 py-3 font-medium">Prix (HT)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {packs.map((p) => (
+                    <tr class="border-b border-slate-800/70 last:border-0">
+                      <td class="px-5 py-3 text-slate-200">
+                        {String(p.planId ?? '').toUpperCase() === 'PRO' ? 'Pro' : 'Starter'}
+                      </td>
+                      <td class="px-5 py-3 text-slate-300">{p.label}</td>
+                      <td class="px-5 py-3 text-slate-300">{p.priceDisplay}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-4 text-xs text-slate-500">
+              Les prix et libellés sont donnés à titre indicatif et reproduisent la logique métier
+              du code applicatif (montants HT, TVA en sus selon le taux en vigueur au moment de la
+              facturation).
+            </p>
+          </div>
+        ) : null}
       </div>
     </section>
 
